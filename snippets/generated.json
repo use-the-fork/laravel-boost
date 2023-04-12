@@ -1,0 +1,556 @@
+{
+  "Laravel Model: Make": {
+    "prefix": "lbModel-make",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${RELATIVE_FILEPATH/^(?:.*[\\\\\\/])?(app|src)(?=[\\\\\\/])|[\\\\\\/][^\\\\\\/]*$|([\\\\\\/])/${1:/capitalize}${2:+\\\\}/g};",
+      "",
+      "use \\Illuminate\\Database\\Eloquent\\Model;",
+      "class ${TM_FILENAME_BASE} extends Model",
+      "{",
+      "${10:\tuse \\Illuminate\\Database\\Eloquent\\Factories\\HasFactory;}",
+      "${20:\tuse \\Illuminate\\Database\\Eloquent\\SoftDeletes;}",
+      "",
+      "${30:/**\n * The attributes that should be cast to native types.\n *\n * @var array\n */\nprotected \\$casts = [\n\t'${32}' => '${31:type}',\n];\n}",
+      "${40:/**\n * The model's default values for attributes.\n *\n * @var array\n */\nprotected \\$attributes = [\n\t'${42}' => '${41}',\n];\n}",
+      "${50:/**\n * The attributes that are mass assignable.\n *\n * @var array\n */\nprotected \\$fillable = [\n\t'${51}',\n];\n}",
+      "$0",
+      "}"
+    ],
+    "isFileTemplate": true
+  },
+  "Laravel Model: Table": {
+    "prefix": "lbModel-table",
+    "body": [
+      "/**",
+      " * The table associated with the model.",
+      " *",
+      " * @var string",
+      " */",
+      "protected \\$table = '$0'"
+    ]
+  },
+  "Laravel Model: Primary Key": {
+    "prefix": "lbModel-primaryKey",
+    "body": [
+      "/**",
+      " * The primary key associated with the table.",
+      " *",
+      " * @var string",
+      " */",
+      "protected \\$primaryKey = '$0'"
+    ]
+  },
+  "Laravel Model: Incrementing": {
+    "prefix": "lbModel-incrementing",
+    "body": [
+      "/**",
+      " * Indicates if the IDs are auto-incrementing.",
+      " *",
+      " * @var bool",
+      " */",
+      "public \\$incrementing = ${1:false}"
+    ]
+  },
+  "Laravel Model: Timestamps": {
+    "prefix": "lbModel-timestamps",
+    "body": [
+      "/**",
+      " * Indicates if the model should be timestamped.",
+      " *",
+      " * @var bool",
+      " */",
+      "public \\$timestamps = ${1:false}"
+    ]
+  },
+  "Laravel Model: Date Format": {
+    "prefix": "lbModel-dateFormat",
+    "body": [
+      "/**",
+      " * The storage format of the model's date columns.",
+      " *",
+      " * @var string",
+      " */",
+      "protected \\$dateFormat = '${0:Y-m-d H:i:s}'"
+    ]
+  },
+  "Laravel Model: Database Connection": {
+    "prefix": "lbModel-databaseConnection",
+    "body": [
+      "/**",
+      " * The database connection that should be used by the model.",
+      " *",
+      " * @var string",
+      " */",
+      "protected \\$connection = '$0'"
+    ]
+  },
+  "Laravel Model: Casts": {
+    "prefix": "lbModel-casts",
+    "description": "Attribute Casting",
+    "body": [
+      "/**",
+      " * The attributes that should be cast to native types.",
+      " *",
+      " * @var array",
+      " */",
+      "protected \\$casts = [",
+      "\t'${1}' => '${0:type}',",
+      "];"
+    ]
+  },
+  "Laravel Model: Attributes": {
+    "prefix": "lbModel-attributes",
+    "description": "The model's default values for attributes.",
+    "body": [
+      "/**",
+      " * The model's default values for attributes.",
+      " *",
+      " * @var array",
+      " */",
+      "protected \\$attributes = [",
+      "\t'${1}' => '$0',",
+      "];"
+    ]
+  },
+  "Laravel Model: Fillable": {
+    "prefix": "lbModel-fillable",
+    "description": "Mass Assignment (Fillable)",
+    "body": [
+      "/**",
+      " * The attributes that are mass assignable.",
+      " *",
+      " * @var array",
+      " */",
+      "protected \\$fillable = [",
+      "\t'$0',",
+      "];"
+    ]
+  },
+  "Laravel Model: Guarded": {
+    "prefix": "lbModel-guarded",
+    "description": "Guard Attributes",
+    "body": [
+      "/**",
+      " * The attributes that aren't mass assignable.",
+      " *",
+      " * @var array",
+      " */",
+      "protected \\$guarded = [",
+      "\t'$0',",
+      "];"
+    ]
+  },
+  "Laravel Model: Prunable": {
+    "prefix": "lbModel-prunable",
+    "description": "Periodically delete models that are no longer needed.",
+    "body": [
+      "use ${0|\\Illuminate\\Database\\Eloquent\\Prunable,\\Illuminate\\Database\\Eloquent\\MassPrunable|};",
+      "",
+      "/**",
+      " * Get the prunable model query.",
+      " *",
+      " * @return \\Illuminate\\Database\\Eloquent\\Builder",
+      " */",
+      "public function prunable()${1: : \\Illuminate\\Database\\Eloquent\\Builder}",
+      "{",
+      "\treturn static::where(${2:created_at},${3:<=},${4:now()->subMonth()});;",
+      "}"
+    ]
+  },
+  "Laravel Model: Dates": {
+    "prefix": "lbModel-dates",
+    "description": "The attributes that should be mutated to dates.",
+    "body": [
+      "/**",
+      " * The attributes that should be mutated to dates.",
+      " *",
+      " * @var array",
+      " */",
+      "protected \\$dates = [",
+      "\t'created_at',",
+      "\t'updated_at',",
+      "\t'${0:deleted_at}',",
+      "];"
+    ]
+  },
+  "Laravel Model: Boot": {
+    "prefix": "lbModel-boot",
+    "description": "The \"booting\" method of the model.",
+    "body": [
+      "/**",
+      " * The \"booting\" method of the model.",
+      " *",
+      " * @return void",
+      " */",
+      "protected static function boot()${1: : void}",
+      "{",
+      "\tparent::boot();;",
+      "\t;",
+      "\t$0;",
+      "}"
+    ]
+  },
+  "Laravel Model: Local Scope": {
+    "prefix": "lbModel-localScope",
+    "description": "Query a local scope within your model.",
+    "body": [
+      "/**",
+      " * Scope a query to only include ${1}",
+      " *",
+      " * @param \\Illuminate\\Database\\Eloquent\\Builder \\$query",
+      " * @return \\Illuminate\\Database\\Eloquent\\Builder",
+      " */",
+      "public function scope${1:/capitalize}(\\Illuminate\\Database\\Eloquent\\Builder, \\$query)${2: : \\Illuminate\\Database\\Eloquent\\Builder}",
+      "{",
+      "\treturn \\$query->where('${3}'$0);;",
+      "}"
+    ]
+  },
+  "Laravel Model: Dynamic Scope": {
+    "prefix": "lbModel-dynamicScope",
+    "description": "Define a scope that accepts parameters within your model.",
+    "body": [
+      "/**",
+      " * Scope a query to only include ${1} of a given type.",
+      " *",
+      " * @param \\Illuminate\\Database\\Eloquent\\Builder \\$query",
+      " * @return \\Illuminate\\Database\\Eloquent\\Builder",
+      " */",
+      "public function scopeOfType(\\Illuminate\\Database\\Eloquent\\Builder \\$query, string \\$type)${2: : \\Illuminate\\Database\\Eloquent\\Builder}",
+      "{",
+      "\treturn \\$query->where('${3}', \\$type);;",
+      "}"
+    ]
+  },
+  "Laravel Model: Has One": {
+    "prefix": "lbModel-hasOne",
+    "description": "Define a One to One relationship within your model.",
+    "body": [
+      "/**",
+      " * Get the ${1} associated with the ${TM_FILENAME_BASE}",
+      " *",
+      " * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasOne",
+      " */",
+      "public function ${1}()${2: : \\Illuminate\\Database\\Eloquent\\Relations\\HasOne}",
+      "{",
+      "\treturn \\$this->hasOne($0::class)${3:->latestOfMany()}${4:->oldestOfMany()}${5:->ofMany('${6}',${7|min,max|})};;",
+      "}"
+    ]
+  },
+  "Laravel Model: Belongs To": {
+    "prefix": "lbModel-belongsTo",
+    "description": "Define a Belongs To relationship within your model.",
+    "body": [
+      "/**",
+      " * Get the ${1} that owns the ${TM_FILENAME_BASE}",
+      " *",
+      " * @return \\Illuminate\\Database\\Eloquent\\Relations\\BelongsTo",
+      " */",
+      "public function ${1}()${2: : \\Illuminate\\Database\\Eloquent\\Relations\\BelongsTo}",
+      "{",
+      "\treturn \\$this->belongsTo($0::class)${3:->withDefault(['${5}'=>'${6}'])};",
+      "}"
+    ]
+  },
+  "Laravel Model: Has Many": {
+    "prefix": "lbModel-hasMany",
+    "description": "Define a One to Many relationship within your model.",
+    "body": [
+      "/**",
+      " * Get all of the ${1} for the ${TM_FILENAME_BASE}",
+      " *",
+      " * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasMany",
+      " */",
+      "public function ${1}()${2: : \\Illuminate\\Database\\Eloquent\\Relations\\HasMany}",
+      "{",
+      "\treturn \\$this->hasMany($0::class);",
+      "}"
+    ]
+  },
+  "Laravel Model: Belongs To Many": {
+    "prefix": "lbModel-belongsToMany",
+    "description": "Define a Belongs to Many relationship within your model.",
+    "body": [
+      "/**",
+      " * The ${1} that belong to the ${TM_FILENAME_BASE}",
+      " *",
+      " * @return \\Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany",
+      " */",
+      "public function ${1}()${2: : \\Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany}",
+      "{",
+      "\treturn \\$this->belongsToMany($0::class);",
+      "}"
+    ]
+  },
+  "Laravel Model: Many to Many": {
+    "prefix": "lbModel-manyToMany",
+    "description": "Define a Many to Many relationship within your model.",
+    "body": [
+      "/**",
+      " * The ${1} that belong to the ${TM_FILENAME_BASE}",
+      " *",
+      " * @return \\Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany",
+      " */",
+      "public function ${1}()${2: : \\Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany}",
+      "{",
+      "\treturn \\$this->belongsToMany($0::class);",
+      "}"
+    ]
+  },
+  "Laravel Model: Has Many Through": {
+    "prefix": "lbModel-hasManyThrough",
+    "description": "Define a Has Many Through relationship within your model.",
+    "body": [
+      "/**",
+      " * Get all of the ${1} for the ${TM_FILENAME_BASE}",
+      " *",
+      " * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasManyThrough",
+      " */",
+      "public function ${1}()${2: : \\Illuminate\\Database\\Eloquent\\Relations\\HasManyThrough}",
+      "{",
+      "\treturn \\$this->hasManyThrough($0::class);",
+      "}"
+    ]
+  },
+  "Laravel Model: Has One Through": {
+    "prefix": "lbModel-hasOneThrough",
+    "description": "Define a Has One Through relationship within your model. (5.8+)",
+    "body": [
+      "/**",
+      " * Get the ${1} associated with the ${TM_FILENAME_BASE}",
+      " *",
+      " * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasOneThrough",
+      " */",
+      "public function ${1}()${2: : \\Illuminate\\Database\\Eloquent\\Relations\\HasOneThrough}",
+      "{",
+      "\treturn \\$this->hasOneThrough(${3}::class, ${4}::class);",
+      "}"
+    ]
+  },
+  "Laravel Model: Morph To": {
+    "prefix": "lbModel-morphTo",
+    "description": "Polymorphic relation to multiple models using a single column. (5.0+)",
+    "body": [
+      "/**",
+      " * Get the parent ${1}able model.",
+      " *",
+      " * @return \\Illuminate\\Database\\Eloquent\\Relations\\MorphTo",
+      " */",
+      "public function ${1}able()${2: : \\Illuminate\\Database\\Eloquent\\Relations\\MorphTo}",
+      "{",
+      "\treturn \\$this->morphTo();",
+      "}"
+    ]
+  },
+  "Laravel Model: Morph One": {
+    "prefix": "lbModel-morphOne",
+    "description": "Defines a polymorphic one-to-one relationship. (5.0+)",
+    "body": [
+      "/**",
+      " * Get the models ${1}.",
+      " *",
+      " * @return \\Illuminate\\Database\\Eloquent\\Relations\\MorphOne",
+      " */",
+      "public function ${1}()${2: : \\Illuminate\\Database\\Eloquent\\Relations\\MorphOne}",
+      "{",
+      "\treturn \\$this->morphOne($0::class, '${1}able')${3:->latestOfMany()}${4:->oldestOfMany()}${5:->ofMany('${6}',${7|min,max|})};;",
+      "}"
+    ]
+  },
+  "Laravel Model: Morph Many": {
+    "prefix": "lbModel-morphMany",
+    "description": "Defines a relationship to a related model with a one-to-many polymorphic relation. (5.0+)",
+    "body": [
+      "/**",
+      " * Get all the models ${1}.",
+      " *",
+      " * @return \\Illuminate\\Database\\Eloquent\\Relations\\MorphMany",
+      " */",
+      "public function ${1}()${2: : \\Illuminate\\Database\\Eloquent\\Relations\\MorphMany}",
+      "{",
+      "\treturn \\$this->morphMany($0::class, '${1}able');",
+      "}"
+    ]
+  },
+  "Laravel Model: Morphed By Many": {
+    "prefix": "lbModel-morphedByMany",
+    "description": "Define relationship to parent models. (5.0+)",
+    "body": [
+      "/**",
+      " * Get all of the ${4:/downcase} that are assigned this ${3}.",
+      " *",
+      " * @return \\Illuminate\\Database\\Eloquent\\Relations\\MorphToMany",
+      " */",
+      "public function ${1}()${2: : \\Illuminate\\Database\\Eloquent\\Relations\\MorphToMany}",
+      "{",
+      "\treturn \\$this->morphMany($0::class, '${3}able');",
+      "}"
+    ]
+  },
+  "Laravel Model: Hidden": {
+    "prefix": "lbModel-hidden",
+    "description": "Specify attributes that shouldn't be included in model's array/JSON output. (5.0+)",
+    "body": [
+      "/**",
+      " * The attributes that should be hidden for arrays.",
+      " *",
+      " * @var array",
+      " */",
+      "protected \\$hidden = [",
+      "\t'$0',",
+      "];"
+    ]
+  },
+  "Laravel Model: Visible": {
+    "prefix": "lbModel-visible",
+    "description": "Specify attributes that should be included in model's array/JSON output. (5.0+)",
+    "body": [
+      "/**",
+      " * The attributes that should be visible in arrays.",
+      " *",
+      " * @var array",
+      " */",
+      "protected \\$visible = [",
+      "\t'$0',",
+      "];"
+    ]
+  },
+  "Laravel Model: Appends": {
+    "prefix": "lbModel-appends",
+    "description": "Attributes to append to JSON serialized model. (5.0+)",
+    "body": [
+      "/**",
+      " * The accessors to append to the model's array form.",
+      " *",
+      " * @var array",
+      " */",
+      "protected \\$appends = [",
+      "\t'$0',",
+      "];"
+    ]
+  },
+  "Laravel Model: Touches": {
+    "prefix": "lbModel-touches",
+    "description": "Update the related timestamp on parent model. (4.1+)",
+    "body": [
+      "/**",
+      " * The relationships that should be touched on save.",
+      " *",
+      " * @var array",
+      " */",
+      "protected \\$touches = [",
+      "\t'$0',",
+      "];"
+    ]
+  },
+  "Laravel Model: Key Type": {
+    "prefix": "lbModel-keyType",
+    "description": "The type of the primary key (int or string). (5.8+)",
+    "body": [
+      "/**",
+      " * The \"type\" of the auto-incrementing ID.",
+      " *",
+      " * @var string",
+      " */",
+      "protected \\$keyType = '${1|int,string|}'"
+    ]
+  },
+  "Laravel Model: Per Page": {
+    "prefix": "lbModel-perPage",
+    "description": "Define the number of models to return in pagination. (5.0+)",
+    "body": [
+      "/**",
+      " * The number of models to return for pagination.",
+      " *",
+      " * @var int",
+      " */",
+      "protected \\$perPage = $0"
+    ]
+  },
+  "Laravel Model: Created At": {
+    "prefix": "lbModel-createdAt",
+    "description": "Defines the name of the \"created at\" column. (5.0+)",
+    "body": [
+      "/**",
+      " * The name of the \"created at\" column.",
+      " *",
+      " * @var string",
+      " */",
+      "const \\$CREATED_AT = '${1:created_at}'"
+    ]
+  },
+  "Laravel Model: Updated At": {
+    "prefix": "lbModel-updatedAt",
+    "description": "Defines the name of the \"updated at\" column. (5.0+)",
+    "body": [
+      "/**",
+      " * The name of the \"updated at\" column.",
+      " *",
+      " * @var string",
+      " */",
+      "const \\$UPDATED_AT = '${1:updated_at}'"
+    ]
+  },
+  "Laravel Model: Deleted At": {
+    "prefix": "lbModel-deletedAt",
+    "description": "Defines the name of the \"deleted at\" column. (SoftDeletes, 5.0+)",
+    "body": [
+      "/**",
+      " * The name of the \"deleted at\" column.",
+      " *",
+      " * @var string",
+      " */",
+      "const \\$DELETED_AT = '${1:deleted_at}'"
+    ]
+  },
+  "Laravel Model: Dispatches Events": {
+    "prefix": "lbModel-dispatchesEvents",
+    "description": "An array that maps Eloquent events to their corresponding events that should be dispatched. (5.1+)",
+    "body": [
+      "use \\Illuminate\\Notifications\\Notifiable;",
+      "",
+      "/**",
+      " * The event map for the model.",
+      " *",
+      " * @var array",
+      " */",
+      "protected \\$dispatchesEvents = [",
+      "\t'${1}' => '${2}',",
+      "];"
+    ]
+  },
+  "Laravel Model: Accessor": {
+    "prefix": "lbModel-accessor",
+    "description": "Modify values retrieved from model attributes (3.0+)",
+    "body": [
+      "/**",
+      " * Get the ${1} attribute.",
+      " *",
+      " * @param string ${3:\\$value}",
+      " * @return ${4:string}",
+      " */",
+      "public function get${1/(.*)/${1:/pascalcase}/}Attribute(${3:\\$value})${2: : ${4:string}}",
+      "{",
+      "\treturn ${3:\\$value};",
+      "}"
+    ]
+  },
+  "Laravel Model: Mutator": {
+    "prefix": "lbModel-mutator",
+    "description": "Define the value for a models attribute (3.0+)",
+    "body": [
+      "/**",
+      " * Set the ${1} attribute.",
+      " *",
+      " * @param string ${3:\\$value}",
+      " * @return ${5:string}",
+      " */",
+      "public function set${1/(.*)/${1:/pascalcase}/}Attribute(${4:\\$value})${2: : ${5:string}}",
+      "{",
+      "\treturn \\$this->attributes['${3}'] = ${4};",
+      "}"
+    ]
+  }
+}
