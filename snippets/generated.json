@@ -1,12 +1,14 @@
 {
   "Laravel Model: Make": {
-    "prefix": "lbModel-make",
+    "prefix": "lbMo-make",
+    "description": "Generate a new model.",
     "body": [
       "<?php",
       "",
       "namespace ${RELATIVE_FILEPATH/^(?:.*[\\\\\\/])?(app|src)(?=[\\\\\\/])|[\\\\\\/][^\\\\\\/]*$|([\\\\\\/])/${1:/capitalize}${2:+\\\\}/g};",
       "",
       "use \\Illuminate\\Database\\Eloquent\\Model;",
+      "",
       "class ${TM_FILENAME_BASE} extends Model",
       "{",
       "${10:\tuse \\Illuminate\\Database\\Eloquent\\Factories\\HasFactory;}",
@@ -21,7 +23,8 @@
     "isFileTemplate": true
   },
   "Laravel Model: Table": {
-    "prefix": "lbModel-table",
+    "prefix": "lbMo-table",
+    "description": "Specifies the name of the database table associated with an model. (5.0+)",
     "body": [
       "/**",
       " * The table associated with the model.",
@@ -32,7 +35,8 @@
     ]
   },
   "Laravel Model: Primary Key": {
-    "prefix": "lbModel-primaryKey",
+    "prefix": "lbMo-primaryKey",
+    "description": "Define the primary key for the model. (5.0+)",
     "body": [
       "/**",
       " * The primary key associated with the table.",
@@ -43,7 +47,8 @@
     ]
   },
   "Laravel Model: Incrementing": {
-    "prefix": "lbModel-incrementing",
+    "prefix": "lbMo-incrementing",
+    "description": "Indicates if the IDs of the model are auto-incrementing.. (3.0+)",
     "body": [
       "/**",
       " * Indicates if the IDs are auto-incrementing.",
@@ -54,7 +59,8 @@
     ]
   },
   "Laravel Model: Timestamps": {
-    "prefix": "lbModel-timestamps",
+    "prefix": "lbMo-timestamps",
+    "description": "Determines whether the model should automatically manage created_at and updated_at columns. (3.2+)",
     "body": [
       "/**",
       " * Indicates if the model should be timestamped.",
@@ -65,7 +71,8 @@
     ]
   },
   "Laravel Model: Date Format": {
-    "prefix": "lbModel-dateFormat",
+    "prefix": "lbMo-dateFormat",
+    "description": "Define the format of the timestamps. (5.0+)",
     "body": [
       "/**",
       " * The storage format of the model's date columns.",
@@ -76,7 +83,8 @@
     ]
   },
   "Laravel Model: Database Connection": {
-    "prefix": "lbModel-databaseConnection",
+    "prefix": "lbMo-databaseConnection",
+    "description": "Define the connection name for the model. (3.0+)",
     "body": [
       "/**",
       " * The database connection that should be used by the model.",
@@ -87,8 +95,8 @@
     ]
   },
   "Laravel Model: Casts": {
-    "prefix": "lbModel-casts",
-    "description": "Attribute Casting",
+    "prefix": "lbMo-casts",
+    "description": "Define model fields and their cast types. (5.0+)",
     "body": [
       "/**",
       " * The attributes that should be cast to native types.",
@@ -101,8 +109,8 @@
     ]
   },
   "Laravel Model: Attributes": {
-    "prefix": "lbModel-attributes",
-    "description": "The model's default values for attributes.",
+    "prefix": "lbMo-attributes",
+    "description": "The models default values for attributes. (3.0+)",
     "body": [
       "/**",
       " * The model's default values for attributes.",
@@ -115,8 +123,8 @@
     ]
   },
   "Laravel Model: Fillable": {
-    "prefix": "lbModel-fillable",
-    "description": "Mass Assignment (Fillable)",
+    "prefix": "lbMo-fillable",
+    "description": "An array of attributes that are mass assignable (3.0+)",
     "body": [
       "/**",
       " * The attributes that are mass assignable.",
@@ -129,8 +137,8 @@
     ]
   },
   "Laravel Model: Guarded": {
-    "prefix": "lbModel-guarded",
-    "description": "Guard Attributes",
+    "prefix": "lbMo-guarded",
+    "description": "An array of attributes that are not mass assignable. (4.0+)",
     "body": [
       "/**",
       " * The attributes that aren't mass assignable.",
@@ -143,7 +151,7 @@
     ]
   },
   "Laravel Model: Prunable": {
-    "prefix": "lbModel-prunable",
+    "prefix": "lbMo-prunable",
     "description": "Periodically delete models that are no longer needed.",
     "body": [
       "use ${0|\\Illuminate\\Database\\Eloquent\\Prunable,\\Illuminate\\Database\\Eloquent\\MassPrunable|};",
@@ -160,7 +168,7 @@
     ]
   },
   "Laravel Model: Dates": {
-    "prefix": "lbModel-dates",
+    "prefix": "lbMo-dates",
     "description": "The attributes that should be mutated to dates.",
     "body": [
       "/**",
@@ -176,7 +184,7 @@
     ]
   },
   "Laravel Model: Boot": {
-    "prefix": "lbModel-boot",
+    "prefix": "lbMo-boot",
     "description": "The \"booting\" method of the model.",
     "body": [
       "/**",
@@ -193,7 +201,7 @@
     ]
   },
   "Laravel Model: Local Scope": {
-    "prefix": "lbModel-localScope",
+    "prefix": "lbMo-localScope",
     "description": "Query a local scope within your model.",
     "body": [
       "/**",
@@ -209,7 +217,7 @@
     ]
   },
   "Laravel Model: Dynamic Scope": {
-    "prefix": "lbModel-dynamicScope",
+    "prefix": "lbMo-dynamicScope",
     "description": "Define a scope that accepts parameters within your model.",
     "body": [
       "/**",
@@ -225,7 +233,7 @@
     ]
   },
   "Laravel Model: Has One": {
-    "prefix": "lbModel-hasOne",
+    "prefix": "lbMo-hasOne",
     "description": "Define a One to One relationship within your model.",
     "body": [
       "/**",
@@ -240,7 +248,7 @@
     ]
   },
   "Laravel Model: Belongs To": {
-    "prefix": "lbModel-belongsTo",
+    "prefix": "lbMo-belongsTo",
     "description": "Define a Belongs To relationship within your model.",
     "body": [
       "/**",
@@ -255,7 +263,7 @@
     ]
   },
   "Laravel Model: Has Many": {
-    "prefix": "lbModel-hasMany",
+    "prefix": "lbMo-hasMany",
     "description": "Define a One to Many relationship within your model.",
     "body": [
       "/**",
@@ -270,7 +278,7 @@
     ]
   },
   "Laravel Model: Belongs To Many": {
-    "prefix": "lbModel-belongsToMany",
+    "prefix": "lbMo-belongsToMany",
     "description": "Define a Belongs to Many relationship within your model.",
     "body": [
       "/**",
@@ -285,7 +293,7 @@
     ]
   },
   "Laravel Model: Many to Many": {
-    "prefix": "lbModel-manyToMany",
+    "prefix": "lbMo-manyToMany",
     "description": "Define a Many to Many relationship within your model.",
     "body": [
       "/**",
@@ -300,7 +308,7 @@
     ]
   },
   "Laravel Model: Has Many Through": {
-    "prefix": "lbModel-hasManyThrough",
+    "prefix": "lbMo-hasManyThrough",
     "description": "Define a Has Many Through relationship within your model.",
     "body": [
       "/**",
@@ -315,7 +323,7 @@
     ]
   },
   "Laravel Model: Has One Through": {
-    "prefix": "lbModel-hasOneThrough",
+    "prefix": "lbMo-hasOneThrough",
     "description": "Define a Has One Through relationship within your model. (5.8+)",
     "body": [
       "/**",
@@ -330,7 +338,7 @@
     ]
   },
   "Laravel Model: Morph To": {
-    "prefix": "lbModel-morphTo",
+    "prefix": "lbMo-morphTo",
     "description": "Polymorphic relation to multiple models using a single column. (5.0+)",
     "body": [
       "/**",
@@ -345,7 +353,7 @@
     ]
   },
   "Laravel Model: Morph One": {
-    "prefix": "lbModel-morphOne",
+    "prefix": "lbMo-morphOne",
     "description": "Defines a polymorphic one-to-one relationship. (5.0+)",
     "body": [
       "/**",
@@ -360,7 +368,7 @@
     ]
   },
   "Laravel Model: Morph Many": {
-    "prefix": "lbModel-morphMany",
+    "prefix": "lbMo-morphMany",
     "description": "Defines a relationship to a related model with a one-to-many polymorphic relation. (5.0+)",
     "body": [
       "/**",
@@ -375,7 +383,7 @@
     ]
   },
   "Laravel Model: Morphed By Many": {
-    "prefix": "lbModel-morphedByMany",
+    "prefix": "lbMo-morphedByMany",
     "description": "Define relationship to parent models. (5.0+)",
     "body": [
       "/**",
@@ -390,7 +398,7 @@
     ]
   },
   "Laravel Model: Hidden": {
-    "prefix": "lbModel-hidden",
+    "prefix": "lbMo-hidden",
     "description": "Specify attributes that shouldn't be included in model's array/JSON output. (5.0+)",
     "body": [
       "/**",
@@ -404,7 +412,7 @@
     ]
   },
   "Laravel Model: Visible": {
-    "prefix": "lbModel-visible",
+    "prefix": "lbMo-visible",
     "description": "Specify attributes that should be included in model's array/JSON output. (5.0+)",
     "body": [
       "/**",
@@ -418,7 +426,7 @@
     ]
   },
   "Laravel Model: Appends": {
-    "prefix": "lbModel-appends",
+    "prefix": "lbMo-appends",
     "description": "Attributes to append to JSON serialized model. (5.0+)",
     "body": [
       "/**",
@@ -432,7 +440,7 @@
     ]
   },
   "Laravel Model: Touches": {
-    "prefix": "lbModel-touches",
+    "prefix": "lbMo-touches",
     "description": "Update the related timestamp on parent model. (4.1+)",
     "body": [
       "/**",
@@ -446,7 +454,7 @@
     ]
   },
   "Laravel Model: Key Type": {
-    "prefix": "lbModel-keyType",
+    "prefix": "lbMo-keyType",
     "description": "The type of the primary key (int or string). (5.8+)",
     "body": [
       "/**",
@@ -458,7 +466,7 @@
     ]
   },
   "Laravel Model: Per Page": {
-    "prefix": "lbModel-perPage",
+    "prefix": "lbMo-perPage",
     "description": "Define the number of models to return in pagination. (5.0+)",
     "body": [
       "/**",
@@ -470,7 +478,7 @@
     ]
   },
   "Laravel Model: Created At": {
-    "prefix": "lbModel-createdAt",
+    "prefix": "lbMo-createdAt",
     "description": "Defines the name of the \"created at\" column. (5.0+)",
     "body": [
       "/**",
@@ -482,7 +490,7 @@
     ]
   },
   "Laravel Model: Updated At": {
-    "prefix": "lbModel-updatedAt",
+    "prefix": "lbMo-updatedAt",
     "description": "Defines the name of the \"updated at\" column. (5.0+)",
     "body": [
       "/**",
@@ -494,7 +502,7 @@
     ]
   },
   "Laravel Model: Deleted At": {
-    "prefix": "lbModel-deletedAt",
+    "prefix": "lbMo-deletedAt",
     "description": "Defines the name of the \"deleted at\" column. (SoftDeletes, 5.0+)",
     "body": [
       "/**",
@@ -506,7 +514,7 @@
     ]
   },
   "Laravel Model: Dispatches Events": {
-    "prefix": "lbModel-dispatchesEvents",
+    "prefix": "lbMo-dispatchesEvents",
     "description": "An array that maps Eloquent events to their corresponding events that should be dispatched. (5.1+)",
     "body": [
       "use \\Illuminate\\Notifications\\Notifiable;",
@@ -522,7 +530,7 @@
     ]
   },
   "Laravel Model: Accessor": {
-    "prefix": "lbModel-accessor",
+    "prefix": "lbMo-accessor",
     "description": "Modify values retrieved from model attributes (3.0+)",
     "body": [
       "/**",
@@ -538,7 +546,7 @@
     ]
   },
   "Laravel Model: Mutator": {
-    "prefix": "lbModel-mutator",
+    "prefix": "lbMo-mutator",
     "description": "Define the value for a models attribute (3.0+)",
     "body": [
       "/**",
@@ -551,6 +559,539 @@
       "{",
       "\treturn \\$this->attributes['${3}'] = ${4};",
       "}"
+    ]
+  },
+  "Laravel Route: Group Closure": {
+    "prefix": "lbRo-groupClosure",
+    "description": "Create a group of routes. (4.2+)",
+    "body": [
+      "->group(function () {",
+      "\t$0",
+      "})${1:;}"
+    ]
+  },
+  "Laravel Route: Any": {
+    "prefix": "lbRo-any",
+    "description": "Allows a route to respond to any HTTP verb. (3.0+)",
+    "body": [
+      "Route::any('${1:users/{id\\}},'",
+      "public function (${2:\\$id})",
+      "{",
+      "\t${3};",
+      "}",
+      ");"
+    ]
+  },
+  "Laravel Route: Match": {
+    "prefix": "lbRo-match",
+    "description": "Define route that responds to multiple HTTP verbs. (4.2+)",
+    "body": [
+      "Route::match([${1:'get', 'post'}], ${2:/user/profile}",
+      "public function ()",
+      "{",
+      "\t$0;",
+      "}",
+      ");"
+    ]
+  },
+  "Laravel Route: Redirect": {
+    "prefix": "lbRo-redirect",
+    "description": "Redirect a route to another URI. (5.5+)",
+    "body": [
+      "Route::redirect('${1:URI}','${2:URI}',${3:301});"
+    ]
+  },
+  "Laravel Route: Permanent Redirect": {
+    "prefix": "lbRo-permanentRedirect",
+    "description": "Define a route that returns a view. (5.0+)",
+    "body": [
+      "Route::view('${1:URI}','${2:viewName}', ${3:['${4}' => ${5}]}});"
+    ]
+  },
+  "Laravel Route: Middleware": {
+    "prefix": "lbRo-middleware",
+    "description": "Middleware on a group of routes. (5.0+)",
+    "body": [
+      "->middleware(['${1:auth}'${2:, ${3:second}}])"
+    ]
+  },
+  "Laravel Route: Middleware Group": {
+    "prefix": "lbRo-middlewareGroup",
+    "description": "Register middleware on a group of routes. (5.0+)",
+    "body": [
+      "Route",
+      "::middleware(['${1:auth}'${2:, ${3:second}}])",
+      "->group(function () {",
+      "\t$0",
+      "})${1:;}"
+    ]
+  },
+  "Laravel Route: Domain": {
+    "prefix": "lbRo-domain",
+    "description": "Define a subdomain routing. (4.0+)",
+    "body": [
+      "->domain('${1:account.example.com}')${2:;}"
+    ]
+  },
+  "Laravel Route: Domain Group": {
+    "prefix": "lbRo-domainGroup",
+    "description": "Define a subdomain routing for a group of routes. (4.0+)",
+    "body": [
+      "Route",
+      "::domain('${1:account.example.com}')${2:;}",
+      "->group(function () {",
+      "\t$0",
+      "})${1:;}"
+    ]
+  },
+  "Laravel Route: Prefix": {
+    "prefix": "lbRo-prefix",
+    "description": "Define a subdomain routing. (4.0+)",
+    "body": [
+      "->prefix('${1:admin}')${2:;}"
+    ]
+  },
+  "Laravel Route: Fallback": {
+    "prefix": "lbRo-fallback",
+    "description": "Define fallback route for unmatched URIs. (5.6+)",
+    "body": [
+      "->fallback(function(){",
+      "\t${1}",
+      "})${2:;}"
+    ]
+  },
+  "Laravel Route: Fallback Group": {
+    "prefix": "lbRo-fallbackGroup",
+    "description": "Define fallback route group for unmatched URIs. (5.6+)",
+    "body": [
+      "Route",
+      "::fallback(function(){",
+      "\t${1}",
+      "})${2:;}",
+      "->group(function () {",
+      "\t$0",
+      "})${1:;}"
+    ]
+  },
+  "Laravel Route: Current Route Name": {
+    "prefix": "lbRo-currentRouteName",
+    "description": "Get the name of the current route. (5.1+)",
+    "body": [
+      "Route::currentRouteName();$0"
+    ]
+  },
+  "Laravel Route: Current Route Action": {
+    "prefix": "lbRo-currentRouteAction",
+    "description": "Get the action name for the current route. (4.2+)",
+    "body": [
+      "Route::currentRouteAction();$0"
+    ]
+  },
+  "Laravel Route: Where": {
+    "prefix": "lbRo-where",
+    "description": "Define a pattern-based filter on a route parameter. (5.2+)",
+    "body": [
+      "->where('${1:name}','${2:[A-Za-z]+}')${3:;}"
+    ]
+  },
+  "Laravel Route: Where Number": {
+    "prefix": "lbRo-whereNumber",
+    "description": "Define a route parameter with numeric constraints. (5.2+)",
+    "body": [
+      "->whereNumber('${1:number}')${3:;}"
+    ]
+  },
+  "Laravel Route: Where Alpha": {
+    "prefix": "lbRo-whereAlpha",
+    "description": "Apply an alphabetical regular expression constraint to a route parameter. (5.2+)",
+    "body": [
+      "->whereAlpha('${1:string}')${3:;}"
+    ]
+  },
+  "Laravel Route: Where Uuid": {
+    "prefix": "lbRo-whereUuid",
+    "description": "Define a route parameter constraint where the value is a UUID. (5.5+)",
+    "body": [
+      "->whereUuid('${1:uuid}')${3:;}"
+    ]
+  },
+  "Laravel Route: Where Ulid": {
+    "prefix": "lbRo-whereUlid",
+    "description": "Define a route parameter constraint where the value is a ULID. (5.5+)",
+    "body": [
+      "->whereUlid('${1:uuid}')${3:;}"
+    ]
+  },
+  "Laravel Route: Closure": {
+    "prefix": "lbRo-closure",
+    "description": "Define a basic route with closure (2.0+)",
+    "body": [
+      "Route::${1|get,post,put,patch,delete,options|}(${2:users/{id\\}}), function(${3:$id}){",
+      "\t$0",
+      "});"
+    ]
+  },
+  "Laravel Route: Controller Action": {
+    "prefix": "lbRo-controllerAction",
+    "description": "Define a basic route with controller actions (5.0+)",
+    "body": [
+      "Route::${1|get,post,put,patch,delete,options|}(${2:users/{id\\}}, [${3:Users}Controller::class, '${4:index}'])"
+    ]
+  },
+  "Laravel Route: Delete Closure": {
+    "prefix": "lbRo-deleteClosure",
+    "description": "Define a basic delete route with closure (2.0+)",
+    "body": [
+      "Route::delete(${2:users/{id\\}}), function(${3:$id}){",
+      "\t$0",
+      "});"
+    ]
+  },
+  "Laravel Route: Get Closure": {
+    "prefix": "lbRo-getClosure",
+    "description": "Define a basic get route with closure (2.0+)",
+    "body": [
+      "Route::get(${2:users/{id\\}}), function(${3:$id}){",
+      "\t$0",
+      "});"
+    ]
+  },
+  "Laravel Route: Post Closure": {
+    "prefix": "lbRo-postClosure",
+    "description": "Define a basic post route with closure (2.0+)",
+    "body": [
+      "Route::post(${2:users/{id\\}}), function(${3:$id}){",
+      "\t$0",
+      "});"
+    ]
+  },
+  "Laravel Route: Put Closure": {
+    "prefix": "lbRo-putClosure",
+    "description": "Define a basic put route with closure (2.0+)",
+    "body": [
+      "Route::put(${2:users/{id\\}}), function(${3:$id}){",
+      "\t$0",
+      "});"
+    ]
+  },
+  "Laravel Route: Resource": {
+    "prefix": "lbRo-resource",
+    "description": "Creates routes to handle typical RESTful CRUD operations. (5.0+)",
+    "body": [
+      "Route::resource('${1:user}', ${1:User/capitalize}Controller::class)",
+      "${2:->only([${12:\t'index',}${13:\t'show',}${14:\t'create',}${15:\t'store',}${16:\t'edit',}${17:\t'update',}${18:\t'destroy',}])${19:;}\n}",
+      "${3:->except([${22:\t'index',}${23:\t'show',}${24:\t'create',}${25:\t'store',}${26:\t'edit',}${27:\t'update',}${28:\t'destroy',}])${29:;}\n}",
+      ";"
+    ]
+  },
+  "Laravel Route: API Resource": {
+    "prefix": "lbRo-apiResource",
+    "description": "Define resource routes for a RESTful API with default actions. (5.5+)",
+    "body": [
+      "Route::apiResource('${1:user}', ${1:User/capitalize}Controller::class)",
+      "${2:->only([${11:\t'index',}${12:\t'show',}${13:\t'create',}${14:\t'store',}${15:\t'edit',}${16:\t'update',}${17:\t'destroy',}])${18:;}\n}",
+      "${3:->except([${21:\t'index',}${22:\t'show',}${23:\t'create',}${24:\t'store',}${25:\t'edit',}${26:\t'update',}${27:\t'destroy',}])${28:;}\n}",
+      ";"
+    ]
+  },
+  "Laravel Route: Only": {
+    "prefix": "lbRo-only",
+    "description": "Define resource routes to include only the specific methods. (5.2+)",
+    "body": [
+      "->only([${1:\t'index',}${2:\t'show',}${3:\t'create',}${4:\t'store',}${5:\t'edit',}${6:\t'update',}${7:\t'destroy',}])${8:;}"
+    ]
+  },
+  "Laravel Route: Except": {
+    "prefix": "lbRo-except",
+    "description": "Define resource routes to exclude specific methods. (5.0+)",
+    "body": [
+      "->except([${1:\t'index',}${2:\t'show',}${3:\t'create',}${4:\t'store',}${5:\t'edit',}${6:\t'update',}${7:\t'destroy',}])${8:;}"
+    ]
+  },
+  "Laravel Migration: Database Connection": {
+    "prefix": "lbMi-databaseConnection",
+    "description": "Specify the database connection for the migration. (5.2+)",
+    "body": [
+      "/**",
+      " * The database connection that should be used by the migration.",
+      " *",
+      " * @var string",
+      " */",
+      "protected \\$connection = '$0'"
+    ]
+  },
+  "Laravel Migration: Create": {
+    "prefix": "lbMi-create",
+    "description": "Create a new database table. (5.0+)",
+    "body": [
+      "Schema::create(${1:users}), function(Blueprint \\$table){",
+      "${2:\\$table->temporary();}",
+      "${3:\\$table->comment('${4:Business calculations}');}",
+      "\t$0",
+      "});"
+    ]
+  },
+  "Laravel Migration: Has Table": {
+    "prefix": "lbMi-hasTable",
+    "description": "Checks if the specified table exists in the database. (5.0+)",
+    "body": [
+      "if(Schema::hasTable(${1:users})){",
+      "\t$0",
+      "};"
+    ]
+  },
+  "Laravel Migration: Has Column": {
+    "prefix": "lbMi-hasColumn",
+    "description": "Checks if the table has a specific column. (5.0+)",
+    "body": [
+      "if(Schema::hasColumn('${1:users}'${2:,${3:'email'}})){",
+      "\t$0",
+      "};"
+    ]
+  },
+  "Laravel Migration: Rename": {
+    "prefix": "lbMi-rename",
+    "description": "Renames a table in the database. (5.1+)",
+    "body": [
+      "Schema::Rename('${1:from}','${1:to}');"
+    ]
+  },
+  "Laravel Migration: Drop": {
+    "prefix": "lbMi-drop",
+    "description": "Drops a table (5.0+)",
+    "body": [
+      "Schema::drop('${1:table}');"
+    ]
+  },
+  "Laravel Migration: Big Increments": {
+    "prefix": "lbMi-bigIncrements",
+    "description": "Defines a big integer auto-incrementing primary key column. (5.8+)",
+    "body": [
+      "\\$table->bigIncrements('${1:id}');"
+    ]
+  },
+  "Laravel Migration: Big Integer": {
+    "prefix": "lbMi-bigInteger",
+    "description": "Creates a BIGINT equivalent column. (5.0+)",
+    "body": [
+      "\\$table->bigIncrements('${1:votes}');"
+    ]
+  },
+  "Laravel Migration: Binary": {
+    "prefix": "lbMi-binary",
+    "description": "Creates a BLOB equivalent column. (5.0+)",
+    "body": [
+      "\\$table->binary('${1:photo}');"
+    ]
+  },
+  "Laravel Migration: Boolean": {
+    "prefix": "lbMi-boolean",
+    "description": "Creates a BOOLEAN equivalent column. (5.0+)",
+    "body": [
+      "\\$table->boolean('${1:confirmed}');"
+    ]
+  },
+  "Laravel Migration: Char": {
+    "prefix": "lbMi-char",
+    "description": "Creates a CHAR equivalent column. (5.0+)",
+    "body": [
+      "\\$table->char('${1:confirmed}',${2:100});"
+    ]
+  },
+  "Laravel Migration: Date Time Tz": {
+    "prefix": "lbMi-dateTimeTz",
+    "description": "Creates a DATETIME (with timezone) equivalent column. (5.2+)",
+    "body": [
+      "\\$table->dateTimeTz('${1:created_at}'${2:, $precision = ${3:0}});"
+    ]
+  },
+  "Laravel Migration: Date Time": {
+    "prefix": "lbMi-dateTime",
+    "description": "Creates a DATETIME equivalent column. (5.0+)",
+    "body": [
+      "\\$table->dateTime('${1:created_at}'${2:, $precision = ${3:0}});"
+    ]
+  },
+  "Laravel Migration: Date": {
+    "prefix": "lbMi-date",
+    "description": "Creates a DATE equivalent column. (5.0+)",
+    "body": [
+      "\\$table->date('${1:created_at}');"
+    ]
+  },
+  "Laravel Migration: Decimal": {
+    "prefix": "lbMi-decimal",
+    "description": "Creates a DECIMAL equivalent column. (5.0+)",
+    "body": [
+      "\\$table->decimal('${1:amount}', $precision = ${2:8}, $scale = ${3:2});"
+    ]
+  },
+  "Laravel Migration: Double": {
+    "prefix": "lbMi-double",
+    "description": "Creates a DOUBLE equivalent column. (5.0+)",
+    "body": [
+      "\\$table->double('${1:amount}',${2:8}, ${3:2});"
+    ]
+  },
+  "Laravel Migration: Enum": {
+    "prefix": "lbMi-enum",
+    "description": "Creates a ENUM equivalent column. (5.7+)",
+    "body": [
+      "\\$table->enum('${1:difficulty}', ['${2:easy}', '${3:hard}'$0]);"
+    ]
+  },
+  "Laravel Migration: Float": {
+    "prefix": "lbMi-float",
+    "description": "Creates a DOUBLE equivalent column. (5.0+)",
+    "body": [
+      "\\$table->float('${1:amount}',${2:8}, ${3:2});"
+    ]
+  },
+  "Laravel Migration: Foreign Id": {
+    "prefix": "lbMi-foreignId",
+    "description": "Creates a UNSIGNED BIGINT equivalent column. (7.0+)",
+    "body": [
+      "\\$table->foreignId('${1:created_at}');"
+    ]
+  },
+  "Laravel Migration: Foreign Id For": {
+    "prefix": "lbMi-foreignIdFor",
+    "description": "Creates a {column}_id UNSIGNED BIGINT equivalent column. (8.0+)",
+    "body": [
+      "\\$table->foreignIdFor(${1:user/capitalize}::class);"
+    ]
+  },
+  "Laravel Migration: Foreign Ulid": {
+    "prefix": "lbMi-foreignUlid",
+    "description": "Creates a ULID equivalent column. (8.59+)",
+    "body": [
+      "\\$table->foreignUlid('${1:user_id}')${2:->references('${3:id}')->on('${4:table_name}')};"
+    ]
+  },
+  "Laravel Migration: Geometry Collection": {
+    "prefix": "lbMi-geometryCollection",
+    "description": "Creates a GEOMETRYCOLLECTION equivalent column. (5.8+)",
+    "body": [
+      "\\$table->geometryCollection('${1:positions}');"
+    ]
+  },
+  "Laravel Migration: Geometry": {
+    "prefix": "lbMi-geometry",
+    "description": "Creates a GEOMETRY equivalent column. (5.8+)",
+    "body": [
+      "\\$table->geometry('${1:positions}');"
+    ]
+  },
+  "Laravel Migration: Id": {
+    "prefix": "lbMi-id",
+    "description": "Creates an auto-incrementing integer column named \"id\". (5.0+)",
+    "body": [
+      "\\$table->id();"
+    ]
+  },
+  "Laravel Migration: Increments": {
+    "prefix": "lbMi-increments",
+    "description": "Creates a INTEGER equivalent column. (5.0+)",
+    "body": [
+      "\\$table->increments('${1:votes}');"
+    ]
+  },
+  "Laravel Migration: Ip Address": {
+    "prefix": "lbMi-ipAddress",
+    "description": "Creates a VARCHAR equivalent column. (5.0+)",
+    "body": [
+      "\\$table->ipAddress('${1:visitor}');"
+    ]
+  },
+  "Laravel Migration: Json": {
+    "prefix": "lbMi-json",
+    "description": "Creates a JSON equivalent column. (5.2+)",
+    "body": [
+      "\\$table->json('${1:options}');"
+    ]
+  },
+  "Laravel Migration: Jsonb": {
+    "prefix": "lbMi-jsonb",
+    "description": "Creates a JSONB equivalent column. (5.3+)",
+    "body": [
+      "\\$table->jsonb('${1:options}');"
+    ]
+  },
+  "Laravel Migration: Line String": {
+    "prefix": "lbMi-lineString",
+    "description": "Creates a LINESTRING equivalent column. (5.8+)",
+    "body": [
+      "\\$table->lineString('${1:positions}');"
+    ]
+  },
+  "Laravel Migration: Mac Address": {
+    "prefix": "lbMi-macAddress",
+    "description": "Some database systems, such as PostgreSQL, have a dedicated column type for this type of data. (5.2+)",
+    "body": [
+      "\\$table->macAddress('${1:description}');"
+    ]
+  },
+  "Laravel Migration: Medium Increments": {
+    "prefix": "lbMi-mediumIncrements",
+    "description": "Creates an auto-incrementing UNSIGNED MEDIUMINT equivalent column as a primary key. (5.2+)",
+    "body": [
+      "\\$table->mediumIncrements('${1:id}');"
+    ]
+  },
+  "Laravel Migration: Medium Integer": {
+    "prefix": "lbMi-mediumInteger",
+    "description": "Creates a MEDIUMINT equivalent column. (5.0+)",
+    "body": [
+      "\\$table->mediumInteger('${1:id}');"
+    ]
+  },
+  "Laravel Migration: Medium Text": {
+    "prefix": "lbMi-mediumText",
+    "description": "Creates a MEDIUMTEXT equivalent column. (5.0+)",
+    "body": [
+      "\\$table->mediumText('${1:id}');"
+    ]
+  },
+  "Laravel Migration: Morphs": {
+    "prefix": "lbMi-morphs",
+    "description": "Creates a {column}_id UNSIGNED BIGINT equivalent column and a {column}_type VARCHAR equivalent column. (5.2+)",
+    "body": [
+      "\\$table->morphs('${1:taggable}');"
+    ]
+  },
+  "Laravel Migration: Multi Line String": {
+    "prefix": "lbMi-multiLineString",
+    "description": "Creates a MULTILINESTRING equivalent column. (5.8+)",
+    "body": [
+      "\\$table->multiLineString('${1:positions}');"
+    ]
+  },
+  "Laravel Migration: Multi Point": {
+    "prefix": "lbMi-multiPoint",
+    "description": "Creates a MULTIPOINT equivalent column. (5.0+)",
+    "body": [
+      "\\$table->multiPoint('${1:positions}');"
+    ]
+  },
+  "Laravel Migration: Multi Polygon": {
+    "prefix": "lbMi-multiPolygon",
+    "description": "Creates a MULTIPOLYGON equivalent column. (5.7+)",
+    "body": [
+      "\\$table->multiPolygon('${1:positions}');"
+    ]
+  },
+  "Laravel Migration: Nullable Timestamps": {
+    "prefix": "lbMi-nullableTimestamps",
+    "description": "Creates nullable created_at and updated_at timestamp columns. (5.5+)",
+    "body": [
+      "\\$table->nullableTimestamps(${1:0});"
+    ]
+  },
+  "Laravel Migration: Nullable Morphs": {
+    "prefix": "lbMi-nullableMorphs",
+    "description": "Creates a nullable {column}_id UNSIGNED BIGINT equivalent column and a nullable {column}_type VARCHAR equivalent column. (5.2+)",
+    "body": [
+      "\\$table->nullableMorphs(${1:0});"
     ]
   }
 }

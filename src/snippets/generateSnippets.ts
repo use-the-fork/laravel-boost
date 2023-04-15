@@ -1,21 +1,19 @@
 import { writeFile } from 'fs';
 import * as _ from 'lodash';
-import { modelSnippets } from './sourceSnippets';
+import { migrationSnippets, modelSnippets, routeSnippets } from './sourceSnippets';
 import { MAPPINGS } from './types';
 
 const getSnippets = () => {
     //const { languageScopes } = extensionConfig();
 
-const snippets = modelSnippets.reduce((acc, curr) => {
+const snippets = [...modelSnippets, ...routeSnippets, ...migrationSnippets].reduce((acc, curr) => {
 
     const snip = curr();
     const key = ['Laravel', `${snip.type}:`, snip.key].join(' ');
 
-    //const prefix = _.camelCase([MAPPINGS.prefix].join(' '));
-
     const prefix = [
         MAPPINGS.prefix,
-        snip.type,
+        snip.type.slice(0, 2),
         '-',
         _.camelCase(snip.key)
     ].join('');

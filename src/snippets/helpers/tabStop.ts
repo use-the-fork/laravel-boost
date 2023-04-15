@@ -1,4 +1,4 @@
-type TabStopMapping = (startTab: number, option?: string, delimiter?: '/' | ':' | '|' ) => string;
+type TabStopMapping = (startTab: number, option?: string, delimiter?: '/' | ':' | '|' | '/capitalize' ) => string;
 
 export const ts: TabStopMapping = (startTab: number = 0, option?: string, delimiter = ':'): string => {
   if (startTab === 0 && !option) {
@@ -12,6 +12,10 @@ export const ts: TabStopMapping = (startTab: number = 0, option?: string, delimi
   }
   if (delimiter === '/') {
     return ['${',startTab, delimiter, `(.*)` , delimiter, '${', startTab, ':', delimiter, option , '}',delimiter ,'}'].join('');
+  }
+
+  if (delimiter === '/capitalize') {
+    return ['${',startTab, ':', option, delimiter,'}'].join('');
   }
 
   return ['${',startTab, delimiter, option,'}'].join('');

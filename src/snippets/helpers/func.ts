@@ -2,7 +2,7 @@ import { TypeScope } from "../types";
 import { ts } from './tabStop';
 
 interface FuncProps {
-  name: string;
+  name?: string;
   func: string[];
   args?: string[];
   returnType?: {
@@ -23,7 +23,9 @@ export const func = ({
 }: FuncProps) => {
 
     const returnFunc = [
-        (scope ? `${scope} ` : ``) + (isStatic ? `static ` : ``) + `function ${name}(${args.join(', ')})` + (returnType ? `${ts(returnType.stop, ` : ${returnType.value}`)}` : ''),
+        (scope ? `${scope} ` : ``) + (isStatic ? `static ` : ``) +
+            `function `+ (name ? name : ``) +`(${args.join(', ')})` +
+            (returnType ? `${ts(returnType.stop, ` : ${returnType.value}`)}` : ''),
         `{`,
         ...func.map((line) => `\t${line.trim()};`),
         '}'

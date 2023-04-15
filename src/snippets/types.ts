@@ -16,6 +16,7 @@ export interface Snippet {
 
 export type TypeMapping = 'string' | 'bool' | 'array';
 export type TypeScope = 'public' | 'protected' | 'private';
+export type TypeObjectOperator = '->' | '::' | '';
 
 
 export const MAPPINGS = {
